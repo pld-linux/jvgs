@@ -8,7 +8,10 @@ Group:		X11/Applications/Games
 Source0:	http://downloads.sourceforge.net/jvgs/jvgs-0.5/%{name}-%{version}-src.tar.gz
 # Source0-md5:	fa86846e183173c5074f142c8dfb5f3a
 URL:		http://jvgs.sourceforge.net/
-BuildRequires:	cmake
+BuildRequires:	SDL >= 1.2
+BuildRequires:	SDL_mixer-devel >= 1.2
+BuildRequires:	cmake >= 2.6
+BuildRequires:	freetype-devel
 BuildRequires:	swig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
