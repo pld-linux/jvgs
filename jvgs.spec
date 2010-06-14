@@ -41,9 +41,9 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}}
 cp -a src/jvgs $RPM_BUILD_ROOT%{_bindir}/jvgs-run
 cp -a main.lua $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -a resources $RPM_BUILD_ROOT%{_datadir}/%{name}
+
 cat > $RPM_BUILD_ROOT%{_bindir}/jvgs << EOF
 #!/bin/sh
-
 cd /usr/share/jvgs
 /usr/bin/jvgs-run
 EOF
