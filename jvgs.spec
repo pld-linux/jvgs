@@ -8,10 +8,14 @@ Group:		X11/Applications/Games
 Source0:	http://downloads.sourceforge.net/jvgs/jvgs-0.5/%{name}-%{version}-src.tar.gz
 # Source0-md5:	fa86846e183173c5074f142c8dfb5f3a
 URL:		http://jvgs.sourceforge.net/
+BuildRequires:	OpenGL-GLU-devel
+BuildRequires:	OpenGL-devel
 BuildRequires:	SDL >= 1.2
 BuildRequires:	SDL_mixer-devel >= 1.2
 BuildRequires:	cmake >= 2.6
 BuildRequires:	freetype-devel
+BuildRequires:	libstdc++-devel
+BuildRequires:	lua51-devel
 BuildRequires:	swig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,8 +48,8 @@ cp -a resources $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 cat > $RPM_BUILD_ROOT%{_bindir}/jvgs << EOF
 #!/bin/sh
-cd /usr/share/jvgs
-/usr/bin/jvgs-run
+cd %{_datadir}/jvgs
+%{_bindir}/jvgs-run
 EOF
 
 %clean
